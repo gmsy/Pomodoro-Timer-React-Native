@@ -6,6 +6,7 @@ Math.formatSeconds = num => (num <= 9 ? "0" : null) + num;
 export default class App extends React.Component {
   workTime = 1500;
   breakTime = 300;
+
   state = {
     time: this.workTime,
     counting: false,
@@ -48,6 +49,7 @@ export default class App extends React.Component {
     this.setState({ counting: false });
     clearInterval(this.working);
   };
+
   reset = () =>
     this.setState({ time: this.resetSwitch() } /* () => this.pause() */);
 
@@ -61,6 +63,7 @@ export default class App extends React.Component {
       () => (this.workTime = Number(this.state.wts) + Number(this.state.wtm))
     );
   };
+
   wtsInput = value => {
     this.setState(
       { wts: value },
@@ -68,12 +71,14 @@ export default class App extends React.Component {
         (this.workTime = Number(this.state.wts) + Number(this.state.wtm) * 60)
     );
   };
+
   btmInput = value => {
     this.setState(
       { btm: value },
       () => (this.breakTime = Number(this.state.bts) + Number(this.state.btm))
     );
   };
+
   btsInput = value => {
     this.setState(
       { bts: value },
@@ -81,6 +86,7 @@ export default class App extends React.Component {
         (this.breakTime = Number(this.state.bts) + Number(this.state.btm) * 60)
     );
   };
+
   render() {
     return (
       <React.Fragment>
